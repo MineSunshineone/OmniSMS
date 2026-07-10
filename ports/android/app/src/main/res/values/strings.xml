@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">OmniSMS</string>
+    <string name="brand_label">OMNISMS / ANDROID</string>
+    <string name="brand_meta">TELEPHONY ADAPTER · SHARED CORE</string>
+    <string name="page_title">设备控制台</string>
+    <string name="page_subtitle">短信、来电与调度事件由 Android 接入；规则、队列和投递计划由共享 C++ core 处理。</string>
+    <string name="runtime_header">RUNTIME STATUS</string>
+    <string name="runtime_initial">调度器已注册 · 等待启动前台服务</string>
+    <string name="start_service">启动前台服务</string>
+    <string name="service_started">前台服务已启动</string>
+    <string name="service_failed">服务启动失败：%1$s</string>
+    <string name="sms_header">SEND SMS</string>
+    <string name="sms_hint">通过系统默认短信订阅发送，长短信由 SmsManager 自动分段。</string>
+    <string name="sms_target_label">目标号码</string>
+    <string name="sms_target_placeholder">例如 +8613800138000</string>
+    <string name="sms_content_label">短信内容</string>
+    <string name="sms_content_placeholder">输入要发送的内容</string>
+    <string name="send_sms">发送短信</string>
+    <string name="sms_submitted">短信已提交给系统</string>
+    <string name="sms_failed">发送失败：%1$s</string>
+    <string name="sms_missing_target">请输入目标号码</string>
+    <string name="sms_missing_content">请输入短信内容</string>
+    <string name="ussd_header">USSD TERMINAL</string>
+    <string name="ussd_hint">使用默认通话订阅执行运营商查询；结果会显示在运行状态区。</string>
+    <string name="ussd_code_label">USSD 代码</string>
+    <string name="ussd_placeholder">例如 *100#</string>
+    <string name="send_ussd">发送 USSD</string>
+    <string name="ussd_result">USSD：%1$s</string>
+    <string name="ussd_failed">USSD 失败：%1$s</string>
+    <string name="ussd_missing">请输入 USSD 代码</string>
+    <string name="ussd_running">正在等待运营商返回 USSD 结果…</string>
+    <string name="config_header">SCHEMA V1 CONFIG</string>
+    <string name="config_hint">与 ESP/Linux 共用同一份 JSON。保存前由 native core 严格校验，修改调度配置后会刷新 WorkManager。</string>
+    <string name="config_label">跨平台配置 JSON</string>
+    <string name="save_config">校验并保存配置</string>
+    <string name="config_saved">配置已保存</string>
+    <string name="config_invalid">配置无效：%1$s</string>
+    <string name="permission_warning">部分权限未授予；对应的短信、来电或 USSD 功能不可用</string>
+    <string name="unknown_error">未知错误</string>
+</resources>

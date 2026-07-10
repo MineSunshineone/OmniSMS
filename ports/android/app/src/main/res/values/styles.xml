@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.OmniSMS" parent="android:style/Theme.Material.NoActionBar">
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:windowBackground">@color/omni_bg</item>
+        <item name="android:colorAccent">@color/omni_amber</item>
+        <item name="android:statusBarColor">@color/omni_bg</item>
+        <item name="android:navigationBarColor">@color/omni_bg</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:windowActionModeOverlay">true</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+
+    <style name="Text.OmniSMS.Brand" parent="">
+        <item name="android:fontFamily">monospace</item>
+        <item name="android:textColor">@color/omni_ink</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:letterSpacing">0.06</item>
+    </style>
+
+    <style name="Text.OmniSMS.Meta" parent="">
+        <item name="android:fontFamily">monospace</item>
+        <item name="android:textColor">@color/omni_faint</item>
+        <item name="android:textSize">10sp</item>
+        <item name="android:letterSpacing">0.12</item>
+    </style>
+
+    <style name="Text.OmniSMS.PageTitle" parent="">
+        <item name="android:textColor">@color/omni_ink</item>
+        <item name="android:textSize">22sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="Text.OmniSMS.Subtitle" parent="">
+        <item name="android:textColor">@color/omni_mute</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:lineSpacingExtra">2dp</item>
+    </style>
+
+    <style name="Text.OmniSMS.CardHeader" parent="">
+        <item name="android:fontFamily">monospace</item>
+        <item name="android:textColor">@color/omni_mute</item>
+        <item name="android:textSize">10sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:letterSpacing">0.12</item>
+        <item name="android:paddingLeft">16dp</item>
+        <item name="android:paddingRight">16dp</item>
+        <item name="android:paddingTop">12dp</item>
+        <item name="android:paddingBottom">12dp</item>
+    </style>
+
+    <style name="Text.OmniSMS.Label" parent="">
+        <item name="android:textColor">@color/omni_body</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="Text.OmniSMS.Hint" parent="">
+        <item name="android:textColor">@color/omni_faint</item>
+        <item name="android:textSize">11sp</item>
+        <item name="android:lineSpacingExtra">1dp</item>
+    </style>
+
+    <style name="Widget.OmniSMS.Input" parent="android:style/Widget.Material.EditText">
+        <item name="android:background">@drawable/bg_input</item>
+        <item name="android:backgroundTint">@null</item>
+        <item name="android:textColor">@color/omni_ink</item>
+        <item name="android:textColorHint">@color/omni_faint</item>
+        <item name="android:fontFamily">monospace</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:paddingLeft">12dp</item>
+        <item name="android:paddingRight">12dp</item>
+        <item name="android:paddingTop">10dp</item>
+        <item name="android:paddingBottom">10dp</item>
+        <item name="android:minHeight">@dimen/omni_touch_min</item>
+    </style>
+
+    <style name="Widget.OmniSMS.Button.Primary" parent="android:style/Widget.Material.Button">
+        <item name="android:background">@drawable/bg_button_primary</item>
+        <item name="android:backgroundTint">@null</item>
+        <item name="android:textColor">@color/omni_amber_text</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:minHeight">@dimen/omni_touch_min</item>
+        <item name="android:minWidth">0dp</item>
+        <item name="android:paddingLeft">16dp</item>
+        <item name="android:paddingRight">16dp</item>
+        <item name="android:stateListAnimator">@null</item>
+    </style>
+
+    <style name="Widget.OmniSMS.Button.Secondary" parent="android:style/Widget.Material.Button">
+        <item name="android:background">@drawable/bg_button_secondary</item>
+        <item name="android:backgroundTint">@null</item>
+        <item name="android:textColor">@color/omni_ink</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:minHeight">@dimen/omni_touch_min</item>
+        <item name="android:minWidth">0dp</item>
+        <item name="android:paddingLeft">16dp</item>
+        <item name="android:paddingRight">16dp</item>
+        <item name="android:stateListAnimator">@null</item>
+    </style>
+</resources>

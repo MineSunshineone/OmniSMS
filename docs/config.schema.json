@@ -1,0 +1,155 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/MineSunshineone/omnisms/docs/config.schema.json",
+  "title": "OmniSMS cross-platform configuration",
+  "type": "object",
+  "required": ["schemaVersion"],
+  "properties": {
+    "schemaVersion": {
+      "const": 1
+    },
+    "modem": {
+      "type": "object",
+      "properties": {
+        "driver": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Platform modem backend or AT driver, for example generic-3gpp or modemmanager."
+        },
+        "endpoint": {
+          "type": "string",
+          "description": "Serial device path, or auto/numeric ID/D-Bus object path for ModemManager."
+        },
+        "baud": {
+          "type": "integer",
+          "minimum": 1200,
+          "maximum": 4000000,
+          "description": "Serial baud rate; ignored by the ModemManager backend."
+        },
+        "pollIntervalMs": { "type": "integer", "minimum": 100, "maximum": 3600000 }
+      },
+      "additionalProperties": true
+    },
+    "receiver": { "type": "string" },
+    "adminPhone": { "type": "string" },
+    "numberBlacklist": { "type": "string" },
+    "forwardRules": { "type": "string" },
+    "callNotifyEnabled": { "type": "boolean" },
+    "pushEnabled": { "type": "boolean" },
+    "pushChannels": {
+      "type": "array",
+      "maxItems": 5,
+      "items": { "$ref": "#/$defs/pushChannel" }
+    },
+    "email": {
+      "type": "object",
+      "properties": {
+        "enabled": { "type": "boolean" },
+        "server": { "type": "string" },
+        "port": { "type": "integer", "minimum": 1, "maximum": 65535 },
+        "username": { "type": "string" },
+        "password": { "type": "string" },
+        "recipient": { "type": "string" }
+      },
+      "additionalProperties": true
+    },
+    "storage": {
+      "type": "object",
+      "properties": {
+        "inboxFile": { "type": "string" }
+      },
+      "additionalProperties": true
+    },
+    "wifi": {
+      "type": "object",
+      "properties": {
+        "ssid": { "type": "string" },
+        "password": { "type": "string" }
+      },
+      "additionalProperties": true
+    },
+    "web": {
+      "type": "object",
+      "properties": {
+        "username": { "type": "string" },
+        "password": { "type": "string" },
+        "listenAddress": { "type": "string" },
+        "port": { "type": "integer", "minimum": 1, "maximum": 65535 },
+        "assetRoot": { "type": "string" }
+      },
+      "additionalProperties": true
+    },
+    "time": {
+      "type": "object",
+      "properties": {
+        "timezoneOffsetMin": { "type": "integer", "minimum": -720, "maximum": 840 },
+        "ntpServer": { "type": "string" },
+        "rebootEnabled": { "type": "boolean" },
+        "rebootHour": { "type": "integer", "minimum": 0, "maximum": 23 },
+        "heartbeatEnabled": { "type": "boolean" },
+        "heartbeatHour": { "type": "integer", "minimum": 0, "maximum": 23 }
+      },
+      "additionalProperties": true
+    },
+    "keepalive": {
+      "type": "object",
+      "properties": {
+        "enabled": { "type": "boolean" },
+        "intervalDays": { "type": "integer", "minimum": 1, "maximum": 3650 },
+        "action": { "type": "integer", "minimum": 0, "maximum": 3 },
+        "target": { "type": "string" },
+        "url": { "type": "string" },
+        "profile": { "type": "string" },
+        "lastRun": { "type": "integer", "minimum": 0, "maximum": 4294967295 }
+      },
+      "additionalProperties": true
+    },
+    "cellular": {
+      "type": "object",
+      "properties": {
+        "dataEnabled": { "type": "boolean" },
+        "roamingEnabled": { "type": "boolean" },
+        "apn": { "type": "string" },
+        "operatorPlmn": { "type": "string" },
+        "netLedEnabled": { "type": "boolean" }
+      },
+      "additionalProperties": true
+    },
+    "scheduledTasks": {
+      "type": "array",
+      "maxItems": 6,
+      "items": { "$ref": "#/$defs/scheduledTask" }
+    }
+  },
+  "$defs": {
+    "pushChannel": {
+      "type": "object",
+      "properties": {
+        "enabled": { "type": "boolean" },
+        "type": { "type": "integer", "minimum": 0, "maximum": 10 },
+        "name": { "type": "string" },
+        "url": { "type": "string" },
+        "key1": { "type": "string" },
+        "key2": { "type": "string" },
+        "customBody": { "type": "string" }
+      },
+      "additionalProperties": true
+    },
+    "scheduledTask": {
+      "type": "object",
+      "properties": {
+        "enabled": { "type": "boolean" },
+        "name": { "type": "string" },
+        "profile": { "type": "string" },
+        "switchBack": { "type": "boolean" },
+        "intervalDays": { "type": "integer", "minimum": 1, "maximum": 3650 },
+        "action": { "type": "integer", "minimum": 0, "maximum": 3 },
+        "target": { "type": "string" },
+        "payload": { "type": "string" },
+        "lastRun": { "type": "integer", "minimum": 0, "maximum": 4294967295 }
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": true
+}

@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/mainScroll"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clipToPadding="false"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/omni_screen_padding"
+        android:paddingTop="24dp"
+        android:paddingRight="@dimen/omni_screen_padding"
+        android:paddingBottom="40dp">
+
+        <TextView
+            style="@style/Text.OmniSMS.Brand"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/brand_label" />
+
+        <TextView
+            style="@style/Text.OmniSMS.Meta"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="@string/brand_meta" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="16dp"
+            android:background="@color/omni_hairline" />
+
+        <TextView
+            style="@style/Text.OmniSMS.PageTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="22dp"
+            android:text="@string/page_title" />
+
+        <TextView
+            style="@style/Text.OmniSMS.Subtitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="20dp"
+            android:text="@string/page_subtitle" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_card"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/Text.OmniSMS.CardHeader"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/runtime_header" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/omni_hairline" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/omni_card_padding">
+
+                <TextView
+                    android:id="@+id/statusText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:accessibilityLiveRegion="polite"
+                    android:background="@drawable/bg_status_info"
+                    android:fontFamily="monospace"
+                    android:lineSpacingExtra="2dp"
+                    android:padding="12dp"
+                    android:text="@string/runtime_initial"
+                    android:textColor="@color/omni_body"
+                    android:textIsSelectable="true"
+                    android:textSize="12sp" />
+
+                <Button
+                    android:id="@+id/startServiceButton"
+                    style="@style/Widget.OmniSMS.Button.Primary"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/start_service" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/omni_card_gap"
+            android:background="@drawable/bg_card"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/Text.OmniSMS.CardHeader"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/sms_header" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/omni_hairline" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/omni_card_padding">
+
+                <TextView
+                    style="@style/Text.OmniSMS.Hint"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/sms_hint" />
+
+                <TextView
+                    style="@style/Text.OmniSMS.Label"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:text="@string/sms_target_label" />
+
+                <EditText
+                    android:id="@+id/smsTargetInput"
+                    style="@style/Widget.OmniSMS.Input"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:hint="@string/sms_target_placeholder"
+                    android:importantForAutofill="no"
+                    android:imeOptions="actionNext"
+                    android:inputType="phone" />
+
+                <TextView
+                    style="@style/Text.OmniSMS.Label"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/sms_content_label" />
+
+                <EditText
+                    android:id="@+id/smsContentInput"
+                    style="@style/Widget.OmniSMS.Input"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:gravity="top|start"
+                    android:hint="@string/sms_content_placeholder"
+                    android:importantForAutofill="no"
+                    android:inputType="textCapSentences|textMultiLine"
+                    android:maxLines="6"
+                    android:minLines="3" />
+
+                <Button
+                    android:id="@+id/sendSmsButton"
+                    style="@style/Widget.OmniSMS.Button.Primary"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/send_sms" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/omni_card_gap"
+            android:background="@drawable/bg_card"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/Text.OmniSMS.CardHeader"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/ussd_header" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/omni_hairline" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/omni_card_padding">
+
+                <TextView
+                    style="@style/Text.OmniSMS.Hint"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/ussd_hint" />
+
+                <TextView
+                    style="@style/Text.OmniSMS.Label"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:text="@string/ussd_code_label" />
+
+                <EditText
+                    android:id="@+id/ussdInput"
+                    style="@style/Widget.OmniSMS.Input"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:hint="@string/ussd_placeholder"
+                    android:importantForAutofill="no"
+                    android:imeOptions="actionDone"
+                    android:inputType="phone" />
+
+                <Button
+                    android:id="@+id/sendUssdButton"
+                    style="@style/Widget.OmniSMS.Button.Secondary"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/send_ussd" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/omni_card_gap"
+            android:background="@drawable/bg_card"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/Text.OmniSMS.CardHeader"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/config_header" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/omni_hairline" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/omni_card_padding">
+
+                <TextView
+                    style="@style/Text.OmniSMS.Hint"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/config_hint" />
+
+                <TextView
+                    style="@style/Text.OmniSMS.Label"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:text="@string/config_label" />
+
+                <EditText
+                    android:id="@+id/configEditor"
+                    style="@style/Widget.OmniSMS.Input"
+                    android:layout_width="match_parent"
+                    android:layout_height="320dp"
+                    android:layout_marginTop="6dp"
+                    android:gravity="top|start"
+                    android:importantForAutofill="noExcludeDescendants"
+                    android:inputType="textMultiLine|textNoSuggestions"
+                    android:scrollbars="vertical"
+                    android:textSize="12sp" />
+
+                <Button
+                    android:id="@+id/saveConfigButton"
+                    style="@style/Widget.OmniSMS.Button.Primary"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/save_config" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

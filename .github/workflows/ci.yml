@@ -1,0 +1,27 @@
+name: ci
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install deps
+        run: sudo apt-get update && sudo apt-get install -y cmake g++ libcurl4-openssl-dev
+      - name: Configure
+        run: cmake -B build -DOMNISMS_BUILD_TESTS=ON -DOMNISMS_BUILD_LINUX_PORT=ON
+      - name: Build
+        run: cmake --build build -j
+      - name: Test
+        run: ctest --test-dir build --output-on-failure
+      - name: Pipeline smoke (--test-pdu)
+        run: |
+          cat > /tmp/omnisms.conf <<'EOF'
+          device = /dev/null
+          EOF
+          ./build/ports/linux/omnismsd -c /tmp/omnisms.conf \
+            --test-pdu 00040D91683108108300F000006270012100002305E8329BFD06 | grep hello

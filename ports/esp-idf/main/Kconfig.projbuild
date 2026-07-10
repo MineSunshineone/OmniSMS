@@ -1,0 +1,38 @@
+menu "OmniSMS hardware"
+
+config OMNISMS_MODEM_UART_NUM
+    int "Modem UART controller"
+    range 0 2
+    default 1
+
+config OMNISMS_MODEM_UART_BAUD
+    int "Modem UART baud rate"
+    range 1200 4000000
+    default 115200
+
+config OMNISMS_MODEM_TX_GPIO
+    int "Modem UART TX GPIO"
+    range 0 48
+    default 3
+
+config OMNISMS_MODEM_RX_GPIO
+    int "Modem UART RX GPIO"
+    range 0 48
+    default 4
+
+config OMNISMS_MODEM_EN_GPIO
+    int "Modem power-enable GPIO"
+    range 0 48
+    default 5
+
+config OMNISMS_PROVISION_BUTTON_GPIO
+    int "Provision/factory-reset button GPIO"
+    range 0 48
+    default 9
+
+config OMNISMS_PROVISION_BUTTON_HOLD_MS
+    int "Factory-reset button hold time (ms)"
+    range 1000 30000
+    default 5000
+
+endmenu

@@ -1,0 +1,61 @@
+{
+  "schemaVersion": 1,
+  "modem": {
+    "driver": "generic-3gpp",
+    "endpoint": "/dev/ttyUSB2",
+    "baud": 115200,
+    "pollIntervalMs": 3000
+  },
+  "receiver": "+8613800138000",
+  "adminPhone": "+8613800138000",
+  "numberBlacklist": "",
+  "forwardRules": "",
+  "callNotifyEnabled": true,
+  "pushEnabled": true,
+  "web": {
+    "username": "admin",
+    "password": "change-me",
+    "listenAddress": "127.0.0.1",
+    "port": 8080,
+    "assetRoot": "/usr/local/share/omnisms/webui"
+  },
+  "pushChannels": [
+    {
+      "enabled": true,
+      "type": 1,
+      "name": "webhook",
+      "url": "https://example.com/sms-hook",
+      "key1": "",
+      "key2": "",
+      "customBody": ""
+    }
+  ],
+  "email": {
+    "enabled": false,
+    "server": "smtp.example.com",
+    "port": 465,
+    "username": "bot@example.com",
+    "password": "",
+    "recipient": "me@example.com"
+  },
+  "storage": {
+    "inboxFile": "/var/lib/omnisms/inbox.jsonl"
+  },
+  "time": {
+    "timezoneOffsetMin": 480,
+    "ntpServer": "pool.ntp.org",
+    "rebootEnabled": false,
+    "rebootHour": 4,
+    "heartbeatEnabled": false,
+    "heartbeatHour": 9
+  },
+  "keepalive": {
+    "enabled": false,
+    "intervalDays": 175,
+    "action": 1,
+    "target": "",
+    "url": "http://gg.incrafttime.top/api/payload?size=64342",
+    "profile": "",
+    "lastRun": 0
+  }
+}

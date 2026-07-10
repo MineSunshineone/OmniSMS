@@ -1,0 +1,69 @@
+<div class="panel" id="panel-sim">
+      <h1 class="page-title">网络设置</h1>
+      <p class="page-subtitle">WiFi 接入、蜂窝数据与 SIM 注册设置。本机经 WiFi 转发，默认不开启蜂窝流量</p>
+      <div class="card-grid sim-grid">
+        <div class="sim-stack">
+        <form action="/save" method="POST" id="simFormEl">
+        <input type="hidden" name="simForm" value="1">
+        <div class="card">
+          <div class="card-header">蜂窝数据设置</div>
+          <div class="card-body">
+            <div class="form-group"><label class="switch-row"><span class="switch-text">允许蜂窝数据（流量）</span><input type="checkbox" class="switch-input" name="dataEnabled" %DATA_CHECKED%><span class="switch-slider"></span></label>
+              <p class="form-hint" style="color:var(--error);font-weight:600">注意：开启会导致收不到短信，模组会掉为纯数据附着，丢失承载短信的 CS/SGs 信令域（漫游时尤其明显）。本机经 WiFi 转发，无需开流量，保持关闭即可。</p>
+              <p class="form-hint">默认关闭=禁用 PDP，零流量。仅在需要保号 HTTP payload / 蜂窝 IP 时临时开启。</p></div>
+            <div class="form-group"><label class="switch-row"><span class="switch-text">允许数据漫游</span><input type="checkbox" class="switch-input" name="roamingEnabled" %ROAMING_CHECKED%><span class="switch-slider"></span></label>
+              <p class="form-hint">同手机“数据漫游”：关闭后设备处于漫游网络(CEREG=5)时不激活蜂窝数据、不跑漫游流量，短信照常接收(走 CS/IMS)。境外/漫游 eSIM 需保持开启，否则可能没有数据、部分卡收不到短信。</p></div>
+            <div class="form-group"><label class="form-label">APN</label><input class="form-input" type="text" name="apn" value="%APN%" placeholder="留空=运营商自动（如 cmnet）"></div>
+            <div class="form-group"><label class="form-label">运营商</label>
+              <input class="form-input" type="text" name="operatorPlmn" value="%OPERATOR_PLMN%" placeholder="留空 = 自动注册（推荐）" list="plmnList">
+              <datalist id="plmnList">
+                <option value="46000">中国移动</option>
+                <option value="46001">中国联通</option>
+                <option value="46011">中国电信</option>
+                <option value="46015">中国广电</option>
+                <option value="310260">T-Mobile US（国外示例）</option>
+                <option value="23410">O2 UK（国外示例）</option>
+              </datalist>
+              <p class="form-hint">从列表选运营商或手动填 PLMN(MCC+MNC，国外同理)。仅能选 SIM 可接入的网络，锁定不可达会失网；不确定留空自动。</p></div>
+            <div class="form-group"><label class="form-label">本机号码（手填）</label>
+              <input class="form-input" type="text" name="phoneNumber" value="%PHONE_NUMBER%" placeholder="卡不上报号码时用于概览显示，可留空">
+              <p class="form-hint">多数 eSIM/数据卡不通过 CNUM 上报本机号码，模组读不到时概览会显示这里的手填值。换卡后请更新或清空，否则会一直显示旧号码。</p></div>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block btn-save">保存蜂窝设置</button>
+        </form>
+        <div class="card">
+          <div class="card-header">eSIM 本地管理<span class="schedule-tag" id="esimCount">--</span></div>
+          <div class="card-body">
+            <div class="esim-status-line">
+              <div><span class="dk">EID</span><div class="dv" id="esimEid">未读取</div></div>
+              <div><span class="dk">最后刷新</span><div class="dv" id="esimUpdated">--</div></div>
+            </div>
+            <div class="esim-actions"><button class="btn btn-primary" type="button" onclick="esimInfo()">查询 eSIM 信息</button><button class="btn btn-secondary" type="button" onclick="esimRefresh()">刷新配置列表</button></div>
+            <div class="esim-table-wrap">
+              <table class="esim-table">
+                <thead><tr><th>ICCID</th><th>昵称</th><th>状态</th><th>操作</th></tr></thead>
+                <tbody id="esimProfiles"><tr><td colspan="4" class="msg-empty">尚未读取 eSIM Profile</td></tr></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        </div>
+        <div class="sim-stack">
+        <div class="card">
+          <div class="card-header">WiFi 网络<button class="btn btn-secondary btn-sm" style="margin-left:auto;" onclick="wifiScan()">扫描</button></div>
+          <div class="card-body">
+            <div class="form-group"><label class="form-label">选择网络</label><select class="form-select" id="wifiScanSel" onchange="wifiPick()"><option value="">点“扫描”获取周边 WiFi</option></select></div>
+            <div class="form-group"><label class="form-label">WiFi 名称 (SSID)</label><input class="form-input" type="text" id="wifiSsidIn" placeholder="从上方选择或手动输入"></div>
+            <div class="form-group"><label class="form-label">WiFi 密码</label><input class="form-input" type="password" id="wifiPassIn" placeholder="开放网络留空"></div>
+            <div class="btn-row"><button class="btn btn-primary" onclick="wifiSave()">保存并重启接入</button><button class="btn btn-secondary" onclick="wifiRestart()">重连当前网络</button></div>
+            <p class="form-hint">保存后设备重启接入新网络；若连接失败会自动重开配网热点供你重配</p>
+            <div class="result-box" id="wifiCfgResult"></div>
+            <div class="result-box" id="wifiResult"></div>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== SMS (收 / 发) ===== -->

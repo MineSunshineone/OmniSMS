@@ -1,0 +1,11 @@
+[Unit]
+Description=OmniSMS forwarding daemon
+After=network-online.target
+
+[Service]
+ExecStart=/usr/local/bin/omnismsd -c /etc/omnisms/omnisms.conf
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

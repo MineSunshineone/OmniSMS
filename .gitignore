@@ -1,0 +1,12 @@
+build/
+build-*/
+Testing/
+*.o
+*.exe
+.vscode/
+.idea/
+ports/android/.gradle/
+ports/android/local.properties
+ports/android/app/build/
+ports/android/.cxx/
+ports/android/app/.cxx/

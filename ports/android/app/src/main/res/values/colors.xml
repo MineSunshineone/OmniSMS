@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Mirrors webui/app.css field-test instrument tokens. -->
+    <color name="omni_bg">#0E1014</color>
+    <color name="omni_canvas">#15181E</color>
+    <color name="omni_canvas_soft">#1B1F27</color>
+    <color name="omni_inset">#0A0C0F</color>
+    <color name="omni_hairline">#242A33</color>
+    <color name="omni_hairline_strong">#333B47</color>
+    <color name="omni_ink">#E7EAEF</color>
+    <color name="omni_body">#AEB6C1</color>
+    <color name="omni_mute">#8B93A0</color>
+    <color name="omni_faint">#576070</color>
+    <color name="omni_amber">#E8B23A</color>
+    <color name="omni_amber_dim">#9C7A2C</color>
+    <color name="omni_amber_text">#1A1306</color>
+    <color name="omni_success">#5CB585</color>
+    <color name="omni_error">#DC6E4E</color>
+    <color name="omni_status_success_bg">#1C2A25</color>
+    <color name="omni_status_error_bg">#2A1D1A</color>
+    <color name="omni_status_info_bg">#1B1F27</color>
+</resources>

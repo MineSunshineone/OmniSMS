@@ -1,0 +1,12 @@
+{
+  "schemaVersion": 1,
+  "modem": {
+    "driver": "modemmanager",
+    "endpoint": "0",
+    "baud": 115200,
+    "pollIntervalMs": 3000
+  },
+  "web": {
+    "port": 8080
+  }
+}
